@@ -13,11 +13,28 @@ vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
+
 -- create new windows
-vim.keymap.set("n", "<leader>wh", vim.cmd.vnew)
-vim.keymap.set("n", "<leader>wl", function() vim.cmd("rightbelow vnew") end)
-vim.keymap.set("n", "<leader>wk", vim.cmd.new)
-vim.keymap.set("n", "<leader>wj", function() vim.cmd("rightbelow new") end)
+vim.keymap.set("n", "<leader>wh", function()
+	dir = vim.fn.expand("%:p:h")
+	vim.cmd.vnew()
+	vim.cmd.Ex(vim.fn.fnameescape(dir))
+end)
+vim.keymap.set("n", "<leader>wl", function()
+	dir = vim.fn.expand("%:p:h")
+	vim.cmd("rightbelow vnew")
+	vim.cmd.Ex(vim.fn.fnameescape(dir))
+end)
+vim.keymap.set("n", "<leader>wk", function()
+	dir = vim.fn.expand("%:p:h")
+	vim.cmd.new()
+	vim.cmd.Ex(vim.fn.fnameescape(dir))
+end)
+vim.keymap.set("n", "<leader>wj", function()
+	dir = vim.fn.expand("%:p:h")
+	vim.cmd("rightbelow new")
+	vim.cmd.Ex(vim.fn.fnameescape(dir))
+end)
 
 -- Moving using legacy key key bindings awsd
 --     conflict with other commands,
