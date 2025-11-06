@@ -8,18 +8,25 @@ vim.keymap.set("n", "<leader>q", vim.cmd.close)
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- switch between windows
-vim.keymap.set("n", "<leader>wj", "<C-w>j")
-vim.keymap.set("n", "<leader>wh", "<C-w>h")
-vim.keymap.set("n", "<leader>wk", "<C-w>k")
-vim.keymap.set("n", "<leader>wl", "<C-w>l")
-
+vim.keymap.set("n", "<leader>j", "<C-w>j")
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
 
 -- create new windows
-vim.keymap.set("n", "<leader>wwh", vim.cmd.vnew)
-vim.keymap.set("n", "<leader>wwl", function() vim.cmd("rightbelow vnew") end)
-vim.keymap.set("n", "<leader>wwk", vim.cmd.new)
-vim.keymap.set("n", "<leader>wwj", function() vim.cmd("rightbelow new") end)
+vim.keymap.set("n", "<leader>wh", vim.cmd.vnew)
+vim.keymap.set("n", "<leader>wl", function() vim.cmd("rightbelow vnew") end)
+vim.keymap.set("n", "<leader>wk", vim.cmd.new)
+vim.keymap.set("n", "<leader>wj", function() vim.cmd("rightbelow new") end)
 
+-- Moving using legacy key key bindings awsd
+--     conflict with other commands,
+--     could be achieved by deactivating original command firts
+-- vim.keymap.del("n", "a")  -- no such key bindings...
+-- vim.keymap.set("n", "a", "<Left>")
+-- vim.keymap.set("n", "s", "<Down>")
+-- vim.keymap.set("n", "w", "<Up>")
+-- vim.keymap.set("n", "d", "<Right>")
 
 -- -----------------------------
 -- TERMINAL RELATED KEY BINDINGS
