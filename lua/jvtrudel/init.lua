@@ -1,6 +1,14 @@
 require("jvtrudel.remap")
 require("jvtrudel.terminal")
 
+-- Useful functions
+
+_G.is_ex = function(bufnb)
+	bufnb = bufnb or 0
+	return vim.api.nvim_buf_get_option(bufnb,"filetype") == "netrw"
+end
+
+
 -- Line numbering
 vim.wo.number = true
 vim.wo.relativenumber = true

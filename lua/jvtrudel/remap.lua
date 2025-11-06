@@ -54,36 +54,31 @@ vim.keymap.set("t", '<Esc>', '<C-\\><C-n>')
 -- Open TERMINAL window at the LEFT of the current window
 vim.keymap.set("n", "<leader>th", 
   function()
-    dir = vim.fn.expand("%:p:h")
     vim.cmd.vnew()
-    vim.cmd.Ex(vim.fn.fnameescape(dir))
+    vim.cmd.cd("%:p:h")
     vim.cmd.term()
   end
 )-- Open TERMINAL window at the RIGHT of the current window
 vim.keymap.set("n", "<leader>tl", 
   function()
-    dir = vim.fn.expand("%:p:h")
-    vim.cmd("rightbelow vnew")
-    vim.cmd.Ex(vim.fn.fnameescape(dir))
+    vim.cmd("rightbelow vsplit")
+    vim.cmd.cd("%:p:h")
     vim.cmd.term()
   end
 )
 -- Open TERMINAL window at ABOVE of the current window
 vim.keymap.set("n", "<leader>tk", 
   function()
-    dir = vim.fn.expand("%:p:h")
-    vim.cmd.new()
-    vim.cmd.Ex(vim.fn.fnameescape(dir))
+    vim.cmd("split")
+    vim.cmd.cd("%:p:h")
     vim.cmd.term()
   end
 )-- Open TERMINAL window at BELOW of the current window
 vim.keymap.set("n", "<leader>tj", 
   function()
-    dir = vim.fn.expand("%:p:h")
-    vim.cmd("rightbelow new")
-    vim.cmd.Ex(vim.fn.fnameescape(dir))
+    vim.cmd("rightbelow split")
+    vim.cmd.cd("%:p:h")
     vim.cmd.term()
   end
 )
 
--- todo:  ^^^^^^^^^^ refactor ^^^^^^^^^
