@@ -1,5 +1,9 @@
 # Neovim cheatsheet for this setup
 
+## Frequent use cases
+
+### Files navigation
+
 
 ## Save and exit
 

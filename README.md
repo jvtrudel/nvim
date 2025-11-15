@@ -1,19 +1,25 @@
 # Basic neovim configuration
 
+Focused on cognitive load reduction and productivity.
+
+## Helps mechanisms
 
 To open [CHEATSHEET.md](./CHEATSHEET.md): `<leader>h`.
 To open [README.md](./README.md): `<leader>hr`
 
 
-## Used package
+## Selected packages
 
-- [x] kanagawa: color schema
-- [x] oil: files manager
-- [x] mini-statusline
+- kanagawa: color schema
+- oil: files manager
+- mini-statusline
+- vim-sleuth: autodetect file indentation rules/policies
+- showkeys: show typped keys
+- smear-cursor: visual cue of motion
 
-## References
+### mainstream packages
 
- - https://www.youtube.com/watch?v=g1gyYttzxcI
-
-
+- lazy
+- treesitter
+- telescope
 

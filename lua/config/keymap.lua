@@ -1,3 +1,11 @@
+
+local km = vim.keymap.set
+
+--remaps
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
+-- oil
 vim.keymap.set('n', "-", "<cmd>Oil --float<CR>", { desc ="Enter file explorer (Oil)" })
 
 vim.keymap.set('n', "w", "<cmd>w<CR>", { desc = "Save" } )
@@ -8,6 +16,12 @@ vim.keymap.set('n', "<leader>wq", "<cmd>wq<CR>", { desc = "Save and quit" } )
 vim.keymap.set('n', "<leader>qq", "<cmd>q!<CR>", { desc = "Force to quit without saving" } ) 
 
 
+-- TERMINAL
+-- exit t mode
+km("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
+km("n", "<leader>t" , "<cmd>term<CR>", { desc = "Create a terminal" } )
+
+
 -- todo: this is not robust... add autocompletion and verify that file exists
 vim.keymap.set("n", "<leader>e", function()
   local file_name = vim.fn.input("Open file: ")
@@ -16,11 +30,14 @@ vim.keymap.set("n", "<leader>e", function()
   end
 end, { desc = "edit a file"})   
 
+-- BUFFERS navigation and manipulation
 vim.keymap.set("n","<leader>ls", "<cmd>ls<CR>", { desc = "list buffers" })
 vim.keymap.set("n","<leader>f", "<cmd>bnext<CR>", { desc = "goto next buffers" })
 vim.keymap.set("n","<leader>d", "<cmd>bprevious<CR>", { desc = "goto previous buffers" })
 vim.keymap.set("n","<leader>c", "<cmd>bd<CR>", { desc = "close buffers" })
 
+
+-- CUSTOM HELP FILES
 vim.keymap.set("n", "<leader>h", function()
   local config_path = vim.fn.stdpath('config')
   local readme_path = config_path .. '/CHEATSHEET.md'
