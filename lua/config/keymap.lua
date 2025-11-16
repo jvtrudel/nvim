@@ -19,7 +19,21 @@ vim.keymap.set('n', "<leader>qq", "<cmd>q!<CR>", { desc = "Force to quit without
 -- TERMINAL
 -- exit t mode
 km("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
-km("n", "<leader>t" , "<cmd>term<CR>", { desc = "Create a terminal" } )
+km("n", "<leader>t" , function()
+print("open terminal")
+ -- function OpenTerminal()
+    local dir = vim.fn.expand('%:p:h')  -- if in a file
+    if vim.startswith(dir, 'oil://') then  -- if in an Oil buffer
+      dir = string.sub(dir, 7)  -- Strip 'oil://' prefix
+      if vim.api.nvim_buf_get_option(0, "buftype") == "nofile" then -- is in a float
+        vim.cmd.q()
+    end
+    end
+    vim.cmd('lcd ' .. dir)
+    vim.cmd('terminal')   
+  end
+  , { desc = "Create a terminal in the current 'context'" }
+)
 
 
 -- todo: this is not robust... add autocompletion and verify that file exists

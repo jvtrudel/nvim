@@ -6,8 +6,8 @@ vim.o.smartcase = true
 
 
 -- use vim
---vim.o.expandtab = true  -- convert tab to spaces
---vim.o.shiftwidth = 4
+vim.o.expandtab = true  -- convert tab to spaces
+vim.o.shiftwidth = 4
 
 vim.o.cursorline = true
 
