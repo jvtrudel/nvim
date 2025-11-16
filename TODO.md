@@ -5,6 +5,8 @@
 
   - [ ] telescope: Install and learn how to use
   - [ ] cmp-nvim or cmp-nvim-lsp or ... (autocompletion)
+  - [ ] choose a linter
+  - [ ]
 
 ## lsp
 
@@ -15,3 +17,6 @@
 ## Files browsing
 
   - [ ] see the current path of oil
+
+## auto-completion
+  - [ ] learn how it works in neovim

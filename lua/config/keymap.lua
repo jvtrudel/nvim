@@ -16,6 +16,12 @@ vim.keymap.set('n', "<leader>wq", "<cmd>wq<CR>", { desc = "Save and quit" } )
 vim.keymap.set('n', "<leader>qq", "<cmd>q!<CR>", { desc = "Force to quit without saving" } ) 
 
 
+-- switch between windows
+vim.keymap.set("n", "<leader>j", "<C-w>j")
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
+
 -- TERMINAL
 -- exit t mode
 km("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
