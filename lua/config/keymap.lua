@@ -17,10 +17,10 @@ vim.keymap.set('n', "<leader>qq", "<cmd>q!<CR>", { desc = "Force to quit without
 
 
 -- switch between windows
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
+vim.keymap.set("n", "<leader>h", "<C-w><Left>")
+vim.keymap.set("n", "<leader>j", "<C-w><Down>")
+vim.keymap.set("n", "<leader>k", "<C-w><Up>")
+vim.keymap.set("n", "<leader>l", "<C-w><Right>")
 
 -- TERMINAL
 -- exit t mode
@@ -58,7 +58,7 @@ vim.keymap.set("n","<leader>c", "<cmd>bd<CR>", { desc = "close buffers" })
 
 
 -- CUSTOM HELP FILES
-vim.keymap.set("n", "<leader>h", function()
+vim.keymap.set("n", "<leader>hh", function()
   local config_path = vim.fn.stdpath('config')
   local readme_path = config_path .. '/CHEATSHEET.md'
   local buf = vim.fn.bufadd(readme_path)

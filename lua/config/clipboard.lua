@@ -1,4 +1,3 @@
-
 local function paste()
   return {
     vim.fn.split(vim.fn.getreg(""), "\n"),
