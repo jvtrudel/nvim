@@ -1,3 +1,8 @@
+# This could enhance the developement
+
+  - list all the context possible:  in a file, in oil, in term, etc...
+  - then have a conditional logic to respond appropiatly in each context
+
 # Problems and missing features
 
 

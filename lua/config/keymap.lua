@@ -28,15 +28,26 @@ km("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode"})
 km("n", "<leader>t" , function()
 print("open terminal")
  -- function OpenTerminal()
+    local buf = vim.api.nvim_get_current_buf()
     local dir = vim.fn.expand('%:p:h')  -- if in a file
-    if vim.startswith(dir, 'oil://') then  -- if in an Oil buffer
+    if vim.bo[buf].buftype == "terminal" then
+--[[      local channel = vim.b[buf].terminal_job_id
+      
+      vim.fn.term_sendkeys(buf, "pwd | wl-copy")  --  TODO: manage dependency on wl-cliipboard
+      local clip_content = vim.fn.system('wl-paste')
+      dir = vim.trim(clip_content)
+    ]]
+
+    -- TODO: implement
+    -- see : https://gist.github.com/cowlicks/5d70685346bf341a71f26e564b795a76
+  elseif vim.startswith(dir, 'oil://') then  -- if in an Oil buffer
       dir = string.sub(dir, 7)  -- Strip 'oil://' prefix
       if vim.api.nvim_buf_get_option(0, "buftype") == "nofile" then -- is in a float
         vim.cmd.q()
     end
     end
     vim.cmd('lcd ' .. dir)
-    vim.cmd('terminal')   
+    vim.cmd('terminal')
   end
   , { desc = "Create a terminal in the current 'context'" }
 )
@@ -48,7 +59,7 @@ vim.keymap.set("n", "<leader>e", function()
   if file_name ~= "" then
     vim.cmd(":edit " .. file_name)
   end
-end, { desc = "edit a file"})   
+end, { desc = "edit a file"})
 
 -- BUFFERS navigation and manipulation
 vim.keymap.set("n","<leader>ls", "<cmd>ls<CR>", { desc = "list buffers" })
